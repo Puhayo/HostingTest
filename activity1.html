@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>체중 관리</title>
+    <link rel="stylesheet" type="text/css" href="activity.css">
+</head>
+<body id="ifamecolor">
+    <header>
+        <h4>활동</h4>
+    </header>
+    <div id="activity">
+        <div class="calculate">
+            <div class="row">
+                <div class="input_box type1 clearfix">
+                    <span class="input_title">성별</span>
+                    <select name="gender" title="성별 선택하기" id="gender" class="w_160">
+                        <option value="male">남자</option>
+                        <option value="female">여자</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input_box type1 w_120 clearfix">
+                    <span class="input_title">신장</span>
+                    <input type="text" title="신장 입력" id="height" name="height" value="" maxlength="10">
+                    <span class="inner_text">cm</span>
+                </div>
+                <div class="input_box type1 w_120 clearfix">
+                    <span class="input_title">체중</span>
+                    <input type="text" title="체중 입력" id="weight" name="weight" value="" maxlength="10">
+                    <span class="inner_text">kg</span>
+                </div>
+                <div class="input_box type1 w_120 clearfix">
+                    <span class="input_title">나이(만)</span>
+                    <input type="text" title="나이 입력" id="age" name="age" value="" maxlength="10">
+                    <span class="inner_text">세</span>
+                </div>
+            </div>
+            <div class="row">
+                <button onclick="calculateAndShowResult()">기초대사량 계산하기</button>
+            </div>
+            <div class="row">
+                <div class="input_box type3 clearfix">
+                    <span class="input_title">기초대사량</span>
+                    <span id="result" class="result_box"><b></b>Kcal</span>
+                </div>
+            </div>
+            <div class="row">
+                <button onclick="calculateActivity()">활동량 계산하기</button>
+            </div>
+            <div class="row">
+                <div class="input_box type3 clearfix">
+                    <span class="input_title">활동량</span>
+                    <span id="activityResult" class="result_box"><b></b></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ... 기존 기초대사량 계산 함수와 결과 출력 함수 ...
+
+        function calculateActivity() {
+            const metabolicRate = parseFloat(document.getElementById('result').innerText);
+            const activityLevels = {
+                '저활동': 1.2,
+                '경활동': 1.375,
+                '중활동': 1.55,
+                '고활동': 1.725,
+                '초고활동': 1.922
+            };
+
+            const selectedActivityLevel = document.getElementById('activityLevel').value;
+            const activityMultiplier = activityLevels[selectedActivityLevel];
+
+            if (metabolicRate && activityMultiplier) {
+                const activityResult = metabolicRate * activityMultiplier;
+                const activityResultElement = document.getElementById('activityResult');
+                activityResultElement.innerHTML = '활동량: ' + activityResult.toFixed(2) + ' Kcal';
+            }
+        }
+        function calculateMetabolicRate(gender, weight, height, age) {
+                    let result = 0;
+        
+                    if (gender === 'male') {
+                        result = 66.47 + (13.75 * weight) + (5 * height) - (6.76 * age);
+                    } else if (gender === 'female') {
+                        result = 655.1 + (9.56 * weight) + (1.85 * height) - (4.68 * age);
+                    }
+        
+                    return result.toFixed(2);
+                }
+                function calculateAndShowResult() {
+            // 기초대사량 계산하는 함수 호출
+            const gender = document.getElementById('gender').value;
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const age = parseInt(document.getElementById('age').value);
+
+            const calculatedResult = calculateMetabolicRate(gender, weight, height, age);
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = '기초대사량: ' + calculatedResult + ' Kcal';
+        }
+    </script>
+</body>
+</html>

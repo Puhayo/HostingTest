@@ -1,0 +1,65 @@
+body { background-color: #ADD8E6;} /* 홈페이지 색상 */
+#ifamecolor {  background-color: beige;} /* 프레임 색상 */
+header {height: 100%;margin: 0;display: flex;justify-content: center;align-items: center;} /* 운동가이드 */
+footer {position: fixed; bottom: 0; left: 0;}
+iframe {
+  display: block;
+  margin:0 auto; width:50%; height: 700px; border:5px solid #d9ff79;}
+#main { border: 2px solid #00c1b7; letter-spacing: normal; text-decoration: none; background-color: #FF99CC; 
+    border-radius: 4px; padding: 10px;text-align: center; display: flex;
+    &:visited{color: #000;}} /* 운동 가이드 박스 */
+#login1 {letter-spacing: normal; text-decoration: none; display: flex; position: absolute; left: 63%;
+  &:visited{color: #000;}}
+#sign1 {letter-spacing: normal; text-decoration: none; display: flex; position: absolute; left: 67%; 
+  &:visited{color: #000;}}
+#all {display: flex;}
+#kg { margin-left: 500px;}
+#kg, #food, #work {
+    background-color:#00c100;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    margin-right: 70px;
+    width: 150px;
+    padding: 30px;
+    letter-spacing: normal;
+    text-align: center;
+    &:hover {
+      background-color: rgb(114, 190, 157);
+    }
+  }
+  
+#kg h3, #food h3,#work h3 {
+    margin: 0;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+  }
+  
+#kg p,#food p,#work p {
+    margin: 0;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 1px;
+    color: white;
+  }
+#kg a,#food a,#work a {
+    text-decoration: none;
+    color: white;
+    &:visited{
+        text-decoration: none;
+    }
+    &:hover{
+        color: red;
+        cursor: pointer;
+    }
+  }
+#iframe{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    &:visited{
+        text-decoration: none;
+    }
+    &:hover{
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+    }
+  }

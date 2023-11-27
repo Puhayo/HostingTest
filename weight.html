@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>체중 관리</title>
+  <link rel="stylesheet" type="text/css" href="weight.css">
+ </head>
+ <body id="ifamecolor">
+    <header id="drop">
+        <h4>체중 관리</h4>
+    </header>
+    <div id="weight">
+        <h1>입력</h1>
+        <form action="바디체크.php" method="post">
+          <label for="number">현재 몸무게:</label>
+          <input type="text" id="name" name="name" required></br>
+      
+          <label for="number">목표 몸무게:</label>
+          <input type="text" id="email" name="email" required></br>
+      
+          <label for="datepicker">시작 날짜:</label>
+          <input type="date" id="datepicker">
+          <label for="datepicker">종료 날짜:</label>
+          <input type="date" id="datepicker">
+          <button onclick="calculateDays()">계산하기</button>
+</div>
+<div id="result">
+    <h1>결과</h1>
+    <form action="바디체크.php" method="post">
+      <label for="name">하루 소비 칼로리:</label>
+      <input type="text" id="name" name="name" required></br>
+  
+      <label for="email">주당 적정 감량:</label>
+      <input type="text" id="email" name="email" required></br>
+</div>
+ </body>
+</html>
